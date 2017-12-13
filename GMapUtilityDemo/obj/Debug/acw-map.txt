@@ -1,3 +1,7 @@
+GMapUtilityDemo.ClusterItem, GMapUtilityDemo;md5952fdd221fee07fada75179508e028a7.ClusterItem
+GMapUtilityDemo.ClusterItem, GMapUtilityDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5952fdd221fee07fada75179508e028a7.ClusterItem
+GMapUtilityDemo.ClusterItem;md5952fdd221fee07fada75179508e028a7.ClusterItem
+gmaputilitydemo.ClusterItem;md5952fdd221fee07fada75179508e028a7.ClusterItem
 GMapUtilityDemo.MainActivity, GMapUtilityDemo;md5952fdd221fee07fada75179508e028a7.MainActivity
 GMapUtilityDemo.MainActivity, GMapUtilityDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5952fdd221fee07fada75179508e028a7.MainActivity
 GMapUtilityDemo.MainActivity;md5952fdd221fee07fada75179508e028a7.MainActivity

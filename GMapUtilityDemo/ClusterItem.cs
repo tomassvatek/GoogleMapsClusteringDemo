@@ -14,41 +14,28 @@ using Com.Google.Maps.Android.Clustering;
 
 namespace GMapUtilityDemo
 {
-    public class ClusterItem : IClusterItem
+    public class ClusterItem : Java.Lang.Object, IClusterItem
     {
-        private LatLng _position;
-        private string _title;
-        private string _snippet;
-
-        public ClusterItem()
+        public ClusterItem(Tree tree)
         {
+            Tree = tree;
+            Position = new LatLng(tree.Lat, tree.Lon);
+            Title = tree.Name;
+            Snippet = tree.Description;
         }
 
-        public ClusterItem(double lat, double lon)
+        public ClusterItem(IntPtr handle, Android.Runtime.JniHandleOwnership transfer)
+            : base(handle, transfer)
         {
-            _position = new LatLng(lat, lon);
+
         }
 
-        public ClusterItem(double lat, double lon, string title, string snippet)
-        {
-            _position = new LatLng(lat, lon);
-            _title = title;
-            _snippet = snippet;
-        }
+        public LatLng Position { get; set; }
 
+        public string Snippet { get; set; }
 
-        public LatLng Position { get { return _position; } }
+        public string Title { get; set; }
 
-        public string Snippet { get { return _snippet; } }
-
-        public string Title { get { return _title; } }
-
-        // This property is extra in contrast with original utility. I dont know ho to implement it.
-        public IntPtr Handle { get; }
-
-        // This method is extra in contrast with original utility. I dont know ho to implement it.
-        public void Dispose()
-        {
-        }
+        public Tree Tree { get; set; } 
     }
 }

@@ -2,7 +2,6 @@
 using Android.OS;
 using Android.Gms.Maps;
 using Com.Google.Maps.Android.Clustering;
-using System.Collections.Generic;
 
 namespace GMapUtilityDemo
 {
@@ -11,7 +10,7 @@ namespace GMapUtilityDemo
     {
         private GoogleMap _map;
         private ClusterManager _clusterManager;
-       
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,8 +33,11 @@ namespace GMapUtilityDemo
 
             if (_map != null)
             {
-                // Initializing the ClusterManager and calling AddClusterItem method.
+                // Initializing and setting up the ClusterManager and calling AddClusterItem method.
                 _clusterManager = new ClusterManager(this, _map);
+                _map.SetOnCameraIdleListener(_clusterManager);
+                _map.SetOnMarkerClickListener(_clusterManager);
+
                 AddClusterItems();
             }
         }
@@ -51,9 +53,6 @@ namespace GMapUtilityDemo
             double lat = 51.5145160;
             double lng = -0.1270060;
 
-            // List of ClusterItems.
-            List<ClusterItem> items = new List<ClusterItem>();
-
             // Add ten cluster items in close proximity, for purposes of this example.
             for (int i = 0; i < 10; i++)
             {
@@ -61,10 +60,9 @@ namespace GMapUtilityDemo
                 lat = lat + offset;
                 lng = lng + offset;
 
-                ClusterItem clusterItem = new ClusterItem(lat, lng);
-                items.Add(clusterItem);
+                Tree tree = new Tree("Tree", lat, lng, "This is tree");
 
-                _clusterManager.AddItems(items);
+                _clusterManager.AddItem(new ClusterItem(tree));
             }
         }
     }
